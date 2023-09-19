@@ -19,6 +19,15 @@ class RecycleActivity : AppCompatActivity() {
         createNewInit();
         getDataFromMain()
         bindDataToRow()
+
+
+
+        val myData = SelfSingleton.chosenLandmark
+
+        println("Out Recycle Shared Data : ${myData!![0].name}")
+        myData.let {
+            println("In Recycle Shared Data : ${it[0].name}")
+        }
     }
 
     private fun createNewInit() {

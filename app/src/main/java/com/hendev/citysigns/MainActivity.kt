@@ -69,6 +69,8 @@ class MainActivity : AppCompatActivity() {
         landMarkList.add(colosseum);
         landMarkList.add(efes);
         landMarkList.add(galata);
+
+        sendDataWithSingleton(landMarkList)
     }
 
     private fun createAdapter() {
@@ -89,5 +91,10 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, RecycleActivity::class.java)
         intent.putExtra("landmarkList", landMarkList)
         startActivity(intent)
+    }
+
+    private fun sendDataWithSingleton(list: ArrayList<Landmark>) {
+        SelfSingleton.chosenLandmark = list
+        println("Coming Data : ${SelfSingleton.chosenLandmark!![0].name}")
     }
 }
